@@ -1,17 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { cards } from "./cards";
+import Card from "./Card";
+import { data,fruit } from "./data";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function CardList() {
+  // console.log(data);
+  // console.log(fruit);
+  // return <h1>Hello World</h1>; // jsx
+  return (
+    // <main className="card-list">
+    //   <Card 
+    //     image={cartOne.image}
+    //     title={cartOne.title}
+    //     descripiton={cartOne.descripiton}
+    //   ><p>laorjoijoiajiwjfwi</p></Card>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    //   <Card 
+    //     image={cartTwo.image}
+    //     title={cartTwo.title}
+    //     descripiton={cartTwo.descripiton}
+    //   />
+    //   <Card 
+    //     image={cartThree.image}
+    //     title={cartThree.title}
+    //     descripiton={cartThree.descripiton}
+    //   />
+    //   <Card 
+    //     image={cartFour.image}
+    //     title={cartFour.title}
+    //     descripiton={cartFour.descripiton}
+    //   />
+    // </main>
+
+    <main className="card-list">
+      {
+        cards.map((card)=> {
+          return <Card key={card.id} {...card} />;
+        })
+      }
+      </main>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<CardList/>);
+// ReactDOM.render(<Greeting/>, document.getElementById("root"));
